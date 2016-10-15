@@ -1,0 +1,9 @@
+start on (net-device-up
+          and local-filesystems
+          and runlevel [2345]
+          and started rsyslog)
+stop on runlevel [!2345]
+
+# UPSTART
+# {{ salt['pillar.get']('mypassword') }}
+exec  /usr/local/redis/redis-3.2.4/src/redis-server
